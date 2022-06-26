@@ -24,3 +24,6 @@ a {
   flex-shrink: 0;
   position: relative;
 }
+#__next {
+  overflow: hidden;
+}
