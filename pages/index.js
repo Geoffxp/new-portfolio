@@ -1,20 +1,23 @@
 import { useEffect, useRef, useState } from 'react'
-import ProjectFrame from '../components/Astro';
+import ProjectFrame from '../components/ProjectFrame';
 import Main from '../components/Main'
 import styles from '../styles/Home.module.css'
+import Resume from '../components/Resume';
+import ComingSoon from '../components/ComingSoon';
 
 export default function Home() {
-  const middle = -300;
-  const max = -600;
+  const middle = -400;
+  const max = -500;
   const main = useRef(null);
   
   const [previousText, setPreviousText] = useState("");
   const [nextText, setNextText] = useState("");
   const [topText, setTopText] = useState("HOME");
+  const [bottomText, setBottomText] = useState("RESUMÉ");
   const [hiding, setHiding] = useState(true);
 
   const [currentPosition, setCurrentPosition] = useState({
-    left: -300,
+    left: middle,
     top: 0
   })
 
@@ -63,7 +66,7 @@ export default function Home() {
     if (currentPosition.left < middle && nextText !== "NEXT") printNext("NEXT");
     if (currentPosition.left > middle + 100 && nextText !== "PREV") printNext("PREV");
 
-    if (currentPosition.left === middle || currentPosition.left === middle - 100 || currentPosition.left === middle + 100) { printTop("") }
+    if ((currentPosition.left === middle && currentPosition.top === 0) || currentPosition.left === middle - 100 || currentPosition.left === middle + 100) { printTop("") }
     else if (topText !== "HOME") { printTop("HOME")} 
 
     if (currentPosition.left > 0) setCurrentPosition({...currentPosition, left: 0})
@@ -81,16 +84,16 @@ export default function Home() {
   return (
     <>
       <div 
-        style={currentPosition.left > -200 || currentPosition.left < -400 ? {} : {top: "-100px"}}
+        style={currentPosition.left > middle + 100 || currentPosition.left < middle - 100 || currentPosition.top !== 0 ? {} : {top: "-100px"}}
         className={styles.top} 
-        onClick={() => setCurrentPosition({...currentPosition, left: -300})}
+        onClick={() => setCurrentPosition({top: 0, left: middle})}
       >
         <div className={styles.shapedBtnTop}>
           {topText}
         </div>
       </div>
       <div 
-        style={hiding || currentPosition.left == 0 ? {left: "-100px"} : {}}
+        style={hiding || currentPosition.left == 0 || currentPosition.top !== 0 ? {left: "-100px"} : {}}
         className={styles.left} 
         onClick={() => setCurrentPosition({...currentPosition, left: currentPosition.left + 100})}
       >
@@ -99,7 +102,7 @@ export default function Home() {
         </div>
       </div>
       <div 
-        style={hiding || currentPosition.left == max ? {right: "-100px"} : {}}
+        style={hiding || currentPosition.left == max || currentPosition.top !== 0 ? {right: "-100px"} : {}}
         className={styles.right} 
         onClick={() => setCurrentPosition({...currentPosition, left: currentPosition.left - 100})}
       >
@@ -107,15 +110,62 @@ export default function Home() {
           {nextText}
         </div>
       </div>
+      <div 
+        style={hiding || currentPosition.left !== middle || currentPosition.top !== 0 ? {bottom: "-100px"} : {}}
+        className={styles.bottom} 
+        onClick={() => setCurrentPosition({...currentPosition, top: -100})}
+      >
+        <div className={styles.shapedBtnBottom}>
+          {bottomText}
+        </div>
+      </div>
     <main ref={main} className={styles.main}>
       <div className={styles.row}>
-        <ProjectFrame url={"https://astro-disatro-js.vercel.app/"} tech={{stack: "Vanilla JS"}} />
-        <ProjectFrame url={"https://excelcarpetcleaningwa.com"} tech={{stack: "Vanilla JS"}} />
-        <ProjectFrame url={"https://plateaumotors.com"} tech={{stack: "Vanilla JS"}} />
+        <ProjectFrame 
+          url={"https://astro-disatro-js.vercel.app/"} 
+          scroll={false}
+          tech={{
+            name: "AstroDisastro",
+            stack: "Vanilla JS, HTML, and CSS",
+            github: "https://github.com/Geoffxp/AstroDisastroJS",
+            about: "This is a game that I built after the completion of my coding bootcamp. The game features a soundtrack that I made in SONAR XE. It was made entirely from scratch with only JavaScript, HTML, and CSS."
+          }} />
+        <ProjectFrame 
+          url={"https://plateaumotors.com"} 
+          scroll={true}
+          tech={{
+            name: "Plateau Motors",
+            stack: "NextJS, Netlify",
+            github: "https://github.com/Command-Web-Solutions/plateau-motors",
+            about: "The Plateau Motors company website was a project that I designed and developed from the ground up. I offer continuing maintenence and SEO optimization as well. Since the launch, we have increased weekly client acquisition considerably."
+          }} />
+        <ProjectFrame 
+          url={"https://mikescarpetcleaningltd.com"} 
+          scroll={true}
+          tech={{
+            name: "Mike's Carpet Cleaning",
+            stack: "NextJS, Netlify, SendInBlue, Acuity Scheduling",
+            github: "https://github.com/Command-Web-Solutions/excel",
+            about: "This project is a referral from Excel. I used the Excel page as a template but added significant customizations to the nav bars and sections. Since starting this project monthly page views have increased by 25%."
+          }} />
+        <ProjectFrame 
+          url={"https://excelcarpetcleaningwa.com"} 
+          scroll={true}
+          tech={{
+            name: "Excel Carpet Cleaning",
+            stack: "NextJS, Netlify, SendInBlue, Acuity Scheduling",
+            github: "https://github.com/Command-Web-Solutions/excel",
+            about: "Designed, developed, and continually maintained by me, this site handles hundreds of users per month. I assisted in the automation of the scheduling process, as well as a fully custom estimator tool. Our email campaigns generate fantastic ROI every month as well!"
+          }} />
         <Main />
-        <ProjectFrame url={"https://astro-disatro-js.vercel.app/"} tech={{stack: "Vanilla JS"}} />
-        <ProjectFrame url={"https://excelcarpetcleaningwa.com"} tech={{stack: "Vanilla JS"}} />
-        <ProjectFrame url={"https://plateaumotors.com"} tech={{stack: "Vanilla JS"}} />
+        <ComingSoon />
+      </div>
+      <div className={styles.row}>
+        <Resume />
+        <Resume />
+        <Resume />
+        <Resume />
+        <Resume />
       </div>
     </main>
     </>

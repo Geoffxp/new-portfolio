@@ -1,6 +1,6 @@
 .main {
   transition: all 1s;
-  transform: translate(-300vw, 0);
+  transform: translate(-400vw, 0);
 }
 .row {
   display: flex;
@@ -50,6 +50,21 @@
   transition: all 0.3s;
   line-height: 1.2;
 }
+.shapedBtnBottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  height: 35px;
+  width: 200px;
+  word-break: break-all;
+  padding-left: 10px;
+  padding-right: 10px;
+  clip-path: polygon(0% 100%, 100% 100%, 100% 25%, 85% 0%, 15% 0%, 0% 25%);
+  transition: all 0.3s;
+  line-height: 1.2;
+}
 .left {
   transition: all 1s;
   position: fixed;
@@ -87,12 +102,12 @@
 }
 .bottom {
   transition: all 0.5s;
-  background-color: white;
   position: fixed;
   width: fit-content;
   cursor: pointer;
   z-index: 5;
-  bottom: 20px;
+  bottom: 0;
+  filter: drop-shadow(0 0 5px rgba(0,0,0,0.5));
   left: 50%;
   transform: translateX(-50%);
 }

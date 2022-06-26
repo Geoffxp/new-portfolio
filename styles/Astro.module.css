@@ -18,6 +18,7 @@
     margin: 0;
     padding: 0;
     flex-shrink: 0;
+    transition: all 0.5s;
 }
 .excelContainer {
     display: flex;
@@ -33,10 +34,15 @@
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
+    cursor: pointer;
+}
+.tech:hover {
+    text-decoration: underline;
 }
 .techModal {
     top: 0;
     left: 0;
+    z-index: 10;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -46,18 +52,54 @@
     transition: all 0.5s;
 }
 .inner {
-    width: 500px;
-    height: 350px;
-    padding: 20px;
+    width: 100%;
+    height: 100%;
+    transform: scale(0.85);
+    transform-origin: center;
     position: relative;
     background-color: white;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 .techModal p {
-    font-size: 20px;
+    font-size: 24px;
+    padding: 24px;
+}
+.techModal a:hover {
+    text-decoration: underline;
 }
 .closeBtn {
+    cursor: pointer;
     position: absolute;
     top: 5px;
     right: 15px;
-    font-size: 24px;
+    font-size: 48px;
+    line-height: 1;
+}
+.bold {
+    font-weight: 700;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 8px;
+}
+.hSplitter {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    height: 1px;
+    background-color: #333;
+}
+.vSplitter {
+    width: 1px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    height: 100%;
+    background-color: #333;
 }
