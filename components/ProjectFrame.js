@@ -39,7 +39,7 @@ export default function ProjectFrame({ url, tech, scroll }) {
                     <p><span className={styles.bold}>Project Name:</span> {tech.name}</p>
                     <p><span className={styles.bold}>Tech Stack:</span> {tech.stack}</p>
                     <p><span className={styles.bold}>About:</span> {tech.about}</p>
-                    <p><span className={styles.bold}>Links:</span><a target="_blank" href={tech.github}>GitHub</a> | <a target="_blank" href={url}>Live Site</a></p>
+                    <p><span className={styles.bold}>Links:</span><a target="_blank" rel="noreferrer" href={tech.github}>GitHub</a> | <a target="_blank" rel="noreferrer" href={url}>Live Site</a></p>
                 </div>
             </div>
         </div>
