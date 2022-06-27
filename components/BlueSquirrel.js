@@ -6,7 +6,6 @@ import LoadingScreen from "./LoadingScreen";
 export default function BlueSquirrel({ stack, aboutCompany, aboutProject, link }) {
     const bs = useRef(null);
     const [loaded, setLoaded] = useState(false);
-    const [down, setDown] = useState(true);
 
     useEffect(() => {
         const bsObserver = new IntersectionObserver(entries => {
@@ -19,7 +18,7 @@ export default function BlueSquirrel({ stack, aboutCompany, aboutProject, link }
                     setLoaded(false)
                 }
             })
-        })
+        }, {threshold:0})
         bsObserver.observe(bs.current);
 
         return () => bsObserver.unobserve(bs.current);

@@ -10,7 +10,7 @@ export default function WorkProject({ title, image, stack, aboutCompany, aboutPr
     useEffect(() => {
         const workObserver = new IntersectionObserver(entries => {
             entries.forEach(e => {
-                if (e.isIntersecting & window.innerWidth >= 821) {
+                if (e.isIntersecting) {
                     setTimeout(() => {
                         setLoaded(true)
                     }, 1000)

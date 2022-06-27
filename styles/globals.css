@@ -46,6 +46,7 @@ a {
   padding: 50px;
 }
 .loading svg {
+  margin-top: 16px;
   width: 75px;
   height: 75px;
 }
