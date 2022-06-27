@@ -3,11 +3,12 @@ import ProjectFrame from '../components/ProjectFrame';
 import Main from '../components/Main'
 import styles from '../styles/Home.module.css'
 import Resume from '../components/Resume';
-import ComingSoon from '../components/ComingSoon';
+import BlueSquirrel from '../components/BlueSquirrel';
+import WorkProject from '../components/WorkProject';
 
 export default function Home() {
   const middle = -400;
-  const max = -500;
+  const max = -1200;
   const main = useRef(null);
   
   const [previousText, setPreviousText] = useState("");
@@ -158,7 +159,60 @@ export default function Home() {
             about: "Designed, developed, and continually maintained by me, this site handles hundreds of users per month. I assisted in the automation of the scheduling process, as well as a fully custom estimator tool. Our email campaigns generate fantastic ROI every month as well!"
           }} />
         <Main />
-        <ComingSoon />
+        <BlueSquirrel 
+          stack={"Alpine, Tailwind, Shopify Liquid"}
+          aboutCompany={"This company sells a revolutionary injection molded children's clubhouse. The durable design and small footprint makes it stand out amongst it's competitors."}
+          aboutProject={"This site has a clean and simple design which allowed for some creative and elaborate animations. Nearly every section in the theme is custom made, including product and cart functionality. I also implemented the ability to switch from the coming soon theme to the launch day theme with one click."}
+          link={"https://mybluesquirrel.com/"} />
+        <WorkProject 
+          title={"Dote Wellness"} 
+          image={"/dote-home.jpg"}
+          stack={"Shopify Liquid"}
+          aboutCompany={"A CBD supplement company focused on natural ingredients and healthy lifestyles. They offer high quality products via one-time and subscription transactions."}
+          aboutProject={"This project was designed externally and offered some unique challenges. The blog section has a very interesting layout that required a lot of conditional rendering, mostly handled with liquid. The posterboard styling required a large reliance on position: absolute, which demanded creative solutions for responsiveness and accessibility."}
+          link={"https://dotewellness.com"} />
+        <WorkProject 
+          title={"Aesthete Wines"} 
+          image={"/aesthete.jpg"}
+          stack={"Shopify Liquid"}
+          aboutCompany={"A wine company that is part of the wave of online liquor sales. Their subscription packages are geared towards connoisseurs but still come in at a reasonable price point."}
+          aboutProject={"My role in this project was mainly to do with CSS touch-ups and the implementation of a quick add button. The project was a transfer of their old site to a new shopify 2.0 theme to allow for the use of some new bleeding edge applications."}
+          link={"https://aesthetewines.com"} />
+        <WorkProject 
+          title={"Rowdy"} 
+          image={"/rowdy.jpg"}
+          stack={"Shopify Liquid"}
+          aboutCompany={""}
+          aboutProject={""}
+          link={""} />
+        <WorkProject 
+          title={"Woof Packs"} 
+          image={"/woofpacks.jpg"}
+          stack={"Shopify Liquid"}
+          aboutCompany={""}
+          aboutProject={""}
+          link={""} />
+        <WorkProject 
+          title={"Twin Health"} 
+          image={"/twin-aetna.jpg"}
+          stack={"Webflow"}
+          aboutCompany={""}
+          aboutProject={""}
+          link={""} />
+        <WorkProject 
+          title={"Wine Connoiseur"} 
+          image={"/wc-about.jpg"}
+          stack={"Shopify Liquid"}
+          aboutCompany={""}
+          aboutProject={""}
+          link={""} />
+        <WorkProject 
+          title={"Amora Coffee"} 
+          image={"/amora-lp.jpg"}
+          stack={"Webflow"}
+          aboutCompany={""}
+          aboutProject={""}
+          link={""} />
       </div>
       <div className={styles.row}>
         <Resume />

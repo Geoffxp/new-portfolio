@@ -27,7 +27,7 @@ export default function ProjectFrame({ url, tech, scroll }) {
     }, []);
     return (
         <div className={styles.excelContainer}>
-            {!loaded && <LoadingScreen />}
+            {!loaded && <LoadingScreen title={tech.name} />}
             {loaded && scroll && <AnimatedScroller />}
             <iframe style={loaded ? {opacity: 1} : {opacity: 0}} ref={astroRef} className={styles.excel} src={url} frameBorder="0"></iframe>
             <p onClick={() => setAstroOpen(true)} className={styles.tech}>ABOUT</p>
