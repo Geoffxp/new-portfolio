@@ -88,13 +88,13 @@ export default function Home() {
     }, 500)
   }, [])
   useEffect(() => {
-    if (ended) {
+    if (ended && currentPosition.top === 0) {
       if (start - end < -50) setCurrentPosition({...currentPosition, left: currentPosition.left + 100})
       if (start - end > 50) setCurrentPosition({...currentPosition, left: currentPosition.left - 100})
-      setStart(0);
-      setEnd(0);
-      setEnded(false);
     }
+    setStart(0);
+    setEnd(0);
+    setEnded(false)
   }, [ended])
   return (
     <div 
