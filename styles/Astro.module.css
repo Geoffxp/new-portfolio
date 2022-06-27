@@ -19,6 +19,7 @@
     padding: 0;
     flex-shrink: 0;
     transition: all 0.5s;
+    touch-action: manipulation;
 }
 .excelContainer {
     display: flex;
