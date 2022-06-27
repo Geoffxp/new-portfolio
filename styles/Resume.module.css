@@ -5,7 +5,22 @@
     justify-content: center;
 }
 .inside {
-    padding: 80px 40px;
+    padding: 80px 0;
     overflow: auto;
-    max-width: 600px;
+    width: 100%;
+    max-width: 900px;
+}
+.inside img {
+    width: 100%;
+    height: auto;
+}
+.inside a {
+    display: block;
+    width: fit-content;
+    margin: 24px auto;
+}
+@media screen and (max-width: 820px) {
+    .inside {
+        padding: 40px 0;
+    }
 }

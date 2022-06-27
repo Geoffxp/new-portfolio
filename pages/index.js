@@ -5,6 +5,7 @@ import styles from '../styles/Home.module.css'
 import Resume from '../components/Resume';
 import BlueSquirrel from '../components/BlueSquirrel';
 import WorkProject from '../components/WorkProject';
+import Spacer from '../components/Spacer';
 
 export default function Home() {
   const middle = -400;
@@ -209,10 +210,10 @@ export default function Home() {
           link={"https://amora-lp.webflow.io"} />
       </div>
       <div className={styles.row}>
-        <Resume />
-        <Resume />
-        <Resume />
-        <Resume />
+        <Spacer />
+        <Spacer />
+        <Spacer />
+        <Spacer />
         <Resume />
       </div>
     </main>
