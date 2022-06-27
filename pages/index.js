@@ -131,33 +131,27 @@ export default function Home() {
             github: "https://github.com/Geoffxp/AstroDisastroJS",
             about: "This is a game that I built after the completion of my coding bootcamp. The game features a soundtrack that I made in SONAR XE. It was made entirely from scratch with only JavaScript, HTML, and CSS."
           }} />
-        <ProjectFrame 
-          url={"https://plateaumotors.com"} 
-          scroll={true}
-          tech={{
-            name: "Plateau Motors",
-            stack: "NextJS, Netlify",
-            github: "https://github.com/Command-Web-Solutions/plateau-motors",
-            about: "The Plateau Motors company website was a project that I designed and developed from the ground up. I offer continuing maintenence and SEO optimization as well. Since the launch, we have increased weekly client acquisition considerably."
-          }} />
-        <ProjectFrame 
-          url={"https://mikescarpetcleaningltd.com"} 
-          scroll={true}
-          tech={{
-            name: "Mike's Carpet Cleaning",
-            stack: "NextJS, Netlify, SendInBlue, Acuity Scheduling",
-            github: "https://github.com/Command-Web-Solutions/excel",
-            about: "This project is a referral from Excel. I used the Excel page as a template but added significant customizations to the nav bars and sections. Since starting this project monthly page views have increased by 25%."
-          }} />
-        <ProjectFrame 
-          url={"https://excelcarpetcleaningwa.com"} 
-          scroll={true}
-          tech={{
-            name: "Excel Carpet Cleaning",
-            stack: "NextJS, Netlify, SendInBlue, Acuity Scheduling",
-            github: "https://github.com/Command-Web-Solutions/excel",
-            about: "Designed, developed, and continually maintained by me, this site handles hundreds of users per month. I assisted in the automation of the scheduling process, as well as a fully custom estimator tool. Our email campaigns generate fantastic ROI every month as well!"
-          }} />
+        <WorkProject 
+          title={"Plateau Motors"} 
+          image={"/plateau.jpg"}
+          stack={"NextJS, Netlify"}
+          aboutCompany={"Auto repair shop located in Sammamish, Washington."}
+          aboutProject={"The Plateau Motors company website was a project that I designed and developed from the ground up. I offer continuing maintenence and SEO optimization as well. Since the launch, we have increased weekly client acquisition considerably."}
+          link={"https://plateaumotors.com"} />
+        <WorkProject 
+          title={"Mike's Carpet Cleaning"} 
+          image={"/mikes.jpg"}
+          stack={"NextJS, Netlify, SendInBlue, Acuity Scheduling"}
+          aboutCompany={"A carpet cleaning company in the Pacific Northwest that offers best in class cleaning at a fair price. Their fleet is made entirely of top quality technicians and equipment."}
+          aboutProject={"This project is a referral from Excel. I used the Excel page as a template but added significant customizations to the nav bars and sections. Since starting this project monthly page views have increased by 25%."}
+          link={"https://mikescarpetcleaningltd.com"} />
+        <WorkProject 
+          title={"Excel Carpet Cleaning"} 
+          image={"/excel.jpg"}
+          stack={"NextJS, Netlify, SendInBlue, Acuity Scheduling"}
+          aboutCompany={"A carpet cleaning company in the Pacific Northwest that offers best in class cleaning at a fair price. Their fleet is made entirely of top quality technicians and equipment."}
+          aboutProject={"Designed, developed, and continually maintained by me, this site handles hundreds of users per month. I assisted in the automation of the scheduling process, as well as a fully custom estimator tool. Our email campaigns generate fantastic ROI every month as well!"}
+          link={"https://excelcarpetcleaningwa.com"} />
         <Main />
         <BlueSquirrel 
           stack={"Alpine, Tailwind, Shopify Liquid"}

@@ -5,12 +5,13 @@ import LoadingScreen from "./LoadingScreen";
 
 export default function WorkProject({ title, image, stack, aboutCompany, aboutProject, link }) {
     const work = useRef(null);
+    const container = useRef(null);
     const [loaded, setLoaded] = useState(false);
 
     useEffect(() => {
         const workObserver = new IntersectionObserver(entries => {
             entries.forEach(e => {
-                if (e.isIntersecting) {
+                if (e.isIntersecting & window.innerWidth >= 821) {
                     setTimeout(() => {
                         setLoaded(true)
                     }, 1000)
@@ -19,7 +20,27 @@ export default function WorkProject({ title, image, stack, aboutCompany, aboutPr
                 }
             })
         })
+        const containerObserver = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting && window.innerWidth < 821) {
+                    container.current.scrollTo({
+                        top: 0,
+                        behavior: "smooth"
+                    })
+                    setTimeout(() => {
+                        setLoaded(true)
+                    }, 1000)
+                } else {
+                    container.current.scrollTo({
+                        top: 0,
+                        behavior: "smooth"
+                    })
+                    setLoaded(false)
+                }
+            })
+        }, {threshold: 0.1})
         workObserver.observe(work.current);
+        containerObserver.observe(container.current);
 
         return () => workObserver.unobserve(work.current);
     }, [])
@@ -45,11 +66,19 @@ export default function WorkProject({ title, image, stack, aboutCompany, aboutPr
                 top: 0,
                 behavior: "smooth"
             })
+            container.current.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            })
             clearInterval(autoScroll)
         }
 
         return () => {
             work.current.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            })
+            container.current.scrollTo({
                 top: 0,
                 behavior: "smooth"
             })
@@ -59,7 +88,7 @@ export default function WorkProject({ title, image, stack, aboutCompany, aboutPr
     return (
         <div className={styles.bs}>
             {!loaded && <LoadingScreen title={title}/>}
-            <div className={styles.row}>
+            <div ref={container} className={styles.row}>
                 <div className={styles.details}>
                     <h2>{title}</h2>
                     <a href={link}>VIEW SITE</a>
