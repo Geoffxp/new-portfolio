@@ -18,6 +18,10 @@ export default function Home() {
   const [bottomText, setBottomText] = useState("RESUMÉ");
   const [hiding, setHiding] = useState(true);
 
+  const [start, setStart] = useState(0);
+  const [end, setEnd] = useState(0);
+  const [ended, setEnded] = useState(false);
+
   const [currentPosition, setCurrentPosition] = useState({
     left: middle,
     top: 0
@@ -83,8 +87,24 @@ export default function Home() {
       setHiding(false)
     }, 500)
   }, [])
+  useEffect(() => {
+    if (ended) {
+      if (start - end < -50) setCurrentPosition({...currentPosition, left: currentPosition.left + 100})
+      if (start - end > 50) setCurrentPosition({...currentPosition, left: currentPosition.left - 100})
+      setStart(0);
+      setEnd(0);
+      setEnded(false);
+    }
+  }, [ended])
   return (
-    <>
+    <div 
+      onTouchStart={(e) => {
+        setStart(e.touches[0].clientX)
+        setEnd(e.touches[0].clientX)
+      }} 
+      onTouchMove={(e) => setEnd(e.touches[0].clientX)} 
+      onTouchEnd={() => setEnded(true)}
+    >
       <div 
         style={currentPosition.left > middle + 100 || currentPosition.left < middle - 100 || currentPosition.top !== 0 ? {} : {top: "-100px"}}
         className={styles.top} 
@@ -217,6 +237,6 @@ export default function Home() {
         <Resume />
       </div>
     </main>
-    </>
+    </div>
   )
 }
