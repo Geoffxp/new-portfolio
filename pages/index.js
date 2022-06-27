@@ -120,7 +120,7 @@ export default function Home() {
           {bottomText}
         </div>
       </div>
-    <main ref={main} className={styles.main}>
+    <main ref={main} style={{transform: "translate(-400vw, 0)"}} className={styles.main}>
       <div className={styles.row}>
         <ProjectFrame 
           url={"https://astro-disatro-js.vercel.app/"} 
