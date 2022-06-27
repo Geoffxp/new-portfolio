@@ -60,7 +60,7 @@ export default function BlueSquirrel({ stack, aboutCompany, aboutProject, link }
     return (
         <div className={styles.bs}>
             {!loaded && <LoadingScreen title={"Blue Squirrel"}/>}
-            <div className={styles.row}>
+            <div  style={loaded ? {opacity: 1} : {opacity: 0}} className={styles.row}>
                 <div className={styles.details}>
                     <h2>Blue Squirrel</h2>
                     <a href={link}>VIEW SITE</a>

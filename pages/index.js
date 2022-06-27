@@ -135,8 +135,8 @@ export default function Home() {
           title={"Plateau Motors"} 
           image={"/plateau.jpg"}
           stack={"NextJS, Netlify"}
-          aboutCompany={"Auto repair shop located in Sammamish, Washington."}
-          aboutProject={"The Plateau Motors company website was a project that I designed and developed from the ground up. I offer continuing maintenence and SEO optimization as well. Since the launch, we have increased weekly client acquisition considerably."}
+          aboutCompany={"Auto repair shop located in Sammamish, Washington. They offer services for most makes and models and have been serving the area for over 30 years."}
+          aboutProject={"The Plateau Motors company website was a project that I designed and developed from the ground up. I offer continuing maintenence and SEO optimization as well. Since the launch, we have increased weekly client acquisition considerably. We have plans to implement a scheduling service as well."}
           link={"https://plateaumotors.com"} />
         <WorkProject 
           title={"Mike's Carpet Cleaning"} 
@@ -176,37 +176,37 @@ export default function Home() {
           title={"Rowdy"} 
           image={"/rowdy.jpg"}
           stack={"Shopify Liquid"}
-          aboutCompany={""}
-          aboutProject={""}
-          link={""} />
+          aboutCompany={"Rowdy is a protein bar / powder company focused on healthy ingredients. They are appealing to atheletes and busy people as they offer high protein snacks and meal replacement options."}
+          aboutProject={"The company wanted to switch to a shopify 2.0 theme after their rebranding. I helped choose the theme and facilitated the transfer of all the new assets to the site."}
+          link={"https://rowdybars.com"} />
         <WorkProject 
           title={"Woof Packs"} 
           image={"/woofpacks.jpg"}
           stack={"Shopify Liquid"}
-          aboutCompany={""}
-          aboutProject={""}
-          link={""} />
+          aboutCompany={"Woof Packs offers subscription based dog toys and treats. The Canadian company truly cares about animals and allows you to customize your box to fit your dogs specific needs."}
+          aboutProject={"I set up a new homepage for them as part of the ReCharge accelerator program. All of the modules were built from the ground up and offer many options for different layouts. I also implemented a custom slider class to meet the needs of the design."}
+          link={"https://woofpacks.ca"} />
         <WorkProject 
           title={"Twin Health"} 
           image={"/twin-aetna.jpg"}
           stack={"Webflow"}
-          aboutCompany={""}
-          aboutProject={""}
+          aboutCompany={"Twin Health is a supplemental health care provider. They offer a medicine and monitoring system that has been proven to reverse and, in some cases, erradicate type 2 diabetes."}
+          aboutProject={"I built and manage all of their partner landing pages. They are hosted on Webflow which required some creative thinking and great use of custom code embeds. All of the classes are custom coded and have many methods to accomodate the specific needs of the site."}
           link={""} />
         <WorkProject 
           title={"Wine Connoiseur"} 
           image={"/wc-about.jpg"}
           stack={"Shopify Liquid"}
-          aboutCompany={""}
-          aboutProject={""}
+          aboutCompany={"Wine Connoisseur is selling a one of a kind wine dispensor system. The system prolongs the life of the wine after opening and creates a perfect pour every time."}
+          aboutProject={"I built the about, blog, and article pages for this site. All of the pages required some amount of conditional rendering, the most elaborate being the filtering of related articles/products by tags."}
           link={""} />
         <WorkProject 
           title={"Amora Coffee"} 
           image={"/amora-lp.jpg"}
           stack={"Webflow"}
-          aboutCompany={""}
-          aboutProject={""}
-          link={""} />
+          aboutCompany={"Amora Coffee is an online coffee company. They offer both subscription and one time products in a very large assortment of flavors."}
+          aboutProject={"This landing page was one of the first projects I took on. The sliders and product image display were all custom coded."}
+          link={"https://amora-lp.webflow.io"} />
       </div>
       <div className={styles.row}>
         <Resume />

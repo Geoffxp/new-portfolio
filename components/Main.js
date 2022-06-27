@@ -12,7 +12,7 @@ export default function Main() {
     return (
         <div ref={mainText} style={{ opacity: 0, transition: "all 1.5s" }}className={styles.main + " screen"}>
             <h1>Geoff Jarman</h1>
-            <p>Software Developer</p>
+            <p>Full Stack Web Developer</p>
         </div>
     )
 }
