@@ -81,11 +81,18 @@ export default function Home() {
       main.current.style.transform = `translate(${currentPosition.left}vw, ${currentPosition.top}vh)`
     }
   }, [currentPosition])
-
+const windowListener = () => {
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
   useEffect(() => {
+    document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+    window.addEventListener('resize', windowListener)
     setTimeout(() => {
       setHiding(false)
     }, 500)
+
+    return () => window.removeEventListener('resize', windowListener)
   }, [])
   useEffect(() => {
     if (ended && currentPosition.top === 0) {

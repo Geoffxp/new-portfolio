@@ -11,6 +11,7 @@
 .excel {
     width: 100vw;
     height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     transform: scale(0.85);
     transform-origin: center;
     border: 0;
@@ -28,6 +29,7 @@
     position: relative;
     width: 100vw;
     height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     padding: 40px;
 }
 .tech {
