@@ -12,6 +12,7 @@ export default function Home() {
   const max = -1200;
   const main = useRef(null);
   
+  const [windowHeight, setWindowHeight] = useState(100);
   const [previousText, setPreviousText] = useState("");
   const [nextText, setNextText] = useState("");
   const [topText, setTopText] = useState("HOME");
@@ -78,30 +79,32 @@ export default function Home() {
     if (currentPosition.left > 0) setCurrentPosition({...currentPosition, left: 0})
     if (currentPosition.left < max) setCurrentPosition({...currentPosition, left: max})
     if (currentPosition.left <= 0 && currentPosition.left >= max) {
-      main.current.style.transform = `translate(${currentPosition.left}vw, ${currentPosition.top}vh)`
+      main.current.style.transform = `translate(${currentPosition.left}vw, ${currentPosition.top}px)`
     }
   }, [currentPosition])
 const windowListener = () => {
   let vh = window.innerHeight * 0.01;
+  setWindowHeight(window.innerHeight);
   document.documentElement.style.setProperty('--vh', `${vh}px`);
 }
   useEffect(() => {
+    setWindowHeight(window.innerHeight);
     document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
-    window.addEventListener('resize', windowListener)
+    window.addEventListener('resize', windowListener);
     setTimeout(() => {
-      setHiding(false)
+      setHiding(false);
     }, 500)
 
-    return () => window.removeEventListener('resize', windowListener)
+    return () => window.removeEventListener('resize', windowListener);
   }, [])
   useEffect(() => {
     if (ended && currentPosition.top === 0) {
-      if (start - end < -50) setCurrentPosition({...currentPosition, left: currentPosition.left + 100})
-      if (start - end > 50) setCurrentPosition({...currentPosition, left: currentPosition.left - 100})
+      if (start - end < -50) setCurrentPosition({...currentPosition, left: currentPosition.left + 100});
+      if (start - end > 50) setCurrentPosition({...currentPosition, left: currentPosition.left - 100});
     }
     setStart(0);
     setEnd(0);
-    setEnded(false)
+    setEnded(false);
   }, [ended])
   return (
     <div 
@@ -142,7 +145,7 @@ const windowListener = () => {
       <div 
         style={hiding || currentPosition.left !== middle || currentPosition.top !== 0 ? {bottom: "-100px"} : {}}
         className={styles.bottom} 
-        onClick={() => setCurrentPosition({...currentPosition, top: -100})}
+        onClick={() => setCurrentPosition({...currentPosition, top: -1 * windowHeight})}
       >
         <div className={styles.shapedBtnBottom}>
           {bottomText}

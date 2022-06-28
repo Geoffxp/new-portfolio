@@ -1,5 +1,5 @@
 .resume {
-    height: 100vh !important;
+    /* height: 100vh !important; */
     display: flex;
     flex-direction: column;
     align-items: center;
